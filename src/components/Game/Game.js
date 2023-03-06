@@ -9,13 +9,14 @@ import WonBanner from "../WonBanner/WonBanner";
 import LostBanner from "../LostBanner/LostBanner";
 
 // Pick a random word on every pageload.
-const answer = sample(WORDS);
+// const answer = sample(WORDS);
 // To make debugging easier, we'll log the solution in the console.
-console.info({ answer });
+// console.info({ answer });
 
 function Game() {
   const [guesses, setGuesses] = useState([]);
   const [status, setStatus] = useState("running");
+  const [answer, setAnswer] = useState(() => sample(WORDS));
 
   function handleSubmitGuess(guess) {
     const nextGuesses = [...guesses, guess];
@@ -37,12 +38,19 @@ function Game() {
     setStatus("running");
   }
 
+  function handleRestart() {
+    const newAnswer = sample(WORDS);
+    setAnswer(newAnswer);
+    setGuesses([]);
+    setStatus('running');
+  }
+
   return (
     <>
       <GuessList guesses={guesses} answer={answer} />
       <GuessInput handleSubmitGuess={handleSubmitGuess} status={status} />
-      {status === "won" && <WonBanner numOfGuesses={guesses.length} /> }
-      {status === "lost" && <LostBanner answer={answer} />}
+      {status === "won" && <WonBanner numOfGuesses={guesses.length} handleRestart={handleRestart} /> }
+      {status === "lost" && <LostBanner answer={answer} handleRestart={handleRestart} />}
     </>
   );
 }
