@@ -6,13 +6,17 @@ const ROWS = [
   ["Y", "X", "C", "V", "B", "N", "M"],
 ];
 
-function Keyboard() {
+// Transformieren in ein Objekt was den Status für jeden Buchstaben enthält
+
+function Keyboard({ checkedGuesses }) {
   return (
     <div className="keyboard">
-      {ROWS.map((row) => (
-        <div className="keyboard-row">
-          {row.map((letter) => (
-            <div className="letter">{letter}</div>
+      {ROWS.map((row, index) => (
+        <div key={index} className="keyboard-row">
+          {row.map((letter, index) => (
+            <div key={index} className="letter">
+              {letter}
+            </div>
           ))}
         </div>
       ))}
