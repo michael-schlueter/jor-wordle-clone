@@ -11,17 +11,17 @@ import Keyboard from "../Keyboard/Keyboard";
 import { checkGuess } from "../../game-helpers";
 
 function Game() {
-  const [guesses, setGuesses] = useState([]);
-  const [status, setStatus] = useState("running");
-  const [answer, setAnswer] = useState(() => sample(WORDS));
+  const [guesses, setGuesses] = useState<string[]>([]);
+  const [status, setStatus] = useState<"running" | "won" | "lost">("running");
+  const [answer, setAnswer] = useState<string>(() => sample(WORDS));
 
-  function handleSubmitGuess(guess) {
+  function handleSubmitGuess(guess: string) {
     const nextGuesses = [...guesses, guess];
     setGuesses(nextGuesses);
     checkWin(guess, answer, nextGuesses);
   }
 
-  function checkWin(guess, answer, nextGuesses) {
+  function checkWin(guess: string, answer: string, nextGuesses: string[]) {
     if (guess === answer) {
       setStatus("won");
       return;
