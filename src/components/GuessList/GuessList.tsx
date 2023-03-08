@@ -3,7 +3,14 @@ import Guess from "../Guess/Guess";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 import { range } from "../../utils";
 
-function GuessList({ checkedGuesses, }) {
+interface GuessListProps {
+  checkedGuesses: ({
+    letter: string;
+    status: string;
+}[] | null)[]
+}
+
+function GuessList({ checkedGuesses }: GuessListProps) {
   return (
     <div className="guess-results">
       {range(NUM_OF_GUESSES_ALLOWED).map((num) => (
