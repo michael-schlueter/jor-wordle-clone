@@ -1,7 +1,12 @@
 import React from "react";
 import Banner from "../Banner/Banner";
 
-function LostBanner({ answer, handleRestart }) {
+interface LostBannerProps {
+  answer: string;
+  handleRestart: () => void;
+}
+
+function LostBanner({ answer, handleRestart }: LostBannerProps) {
   return (
     <Banner status="sad" action={handleRestart} actionText="Restart game">
       <p>
