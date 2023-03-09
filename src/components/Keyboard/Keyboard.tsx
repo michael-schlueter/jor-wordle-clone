@@ -6,9 +6,16 @@ const ROWS = [
   ["Y", "X", "C", "V", "B", "N", "M"],
 ];
 
+interface KeyBoardProps {
+  checkedGuesses: ({
+    letter: string;
+    status: string;
+}[] | null)[]
+}
+
 // Transformieren in ein Objekt was den Status für jeden Buchstaben enthält
 
-function Keyboard({ checkedGuesses }) {
+function Keyboard({ checkedGuesses }: KeyBoardProps) {
   return (
     <div className="keyboard">
       {ROWS.map((row, index) => (
