@@ -1,6 +1,13 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-function Banner({ children, status, action, actionText }) {
+interface BannerProps {
+  children: ReactNode;
+  status: 'happy' | 'sad';
+  action: () => void;
+  actionText: string;
+}
+
+function Banner({ children, status, action, actionText }: BannerProps) {
   return (
     <div className={`${status} banner`}>
       {children}
