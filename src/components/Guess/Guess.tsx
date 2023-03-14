@@ -2,8 +2,8 @@ import React from "react";
 import { range } from "../../utils";
 
 interface CellProps {
-  letter: string;
-  status: 'correct' | 'incorrect' | 'misplaced'
+  letter: string | undefined;
+  status: string | undefined;
 }
 
 function Cell({ letter, status }: CellProps) {
@@ -11,8 +11,16 @@ function Cell({ letter, status }: CellProps) {
   return <span className={className}>{letter}</span>;
 }
 
-// @ts-ignore
-function Guess({ value }) {
+interface GuessProps {
+  value: ({
+    letter: string;
+    status: string;
+}[] | null)
+}
+
+
+function Guess({ value }: GuessProps) {
+  console.log(value);
   return (
     <p className="guess">
       {range(5).map((num) => (
