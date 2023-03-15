@@ -1,11 +1,5 @@
 import React from "react";
 
-const ROWS = [
-  ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P"],
-  ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
-  ["Y", "X", "C", "V", "B", "N", "M"],
-];
-
 interface KeyBoardProps {
   checkedGuesses: ({
     letter: string;
@@ -13,15 +7,37 @@ interface KeyBoardProps {
 }[] | null)[]
 }
 
-// Transformieren in ein Objekt was den Status für jeden Buchstaben enthält
+const ROWS = [
+  ["Q", "W", "E", "R", "T", "Z", "U", "I", "O", "P"],
+  ["A", "S", "D", "F", "G", "H", "J", "K", "L"],
+  ["Y", "X", "C", "V", "B", "N", "M"],
+];
+
+// @ts-ignore
+function getStatusByLetter(checkedGuesses) {
+  let statusObj = {};
+
+  // @ts-ignore
+  checkedGuesses.forEach((guess) => {
+    // @ts-ignore
+    guess.forEach(({ letter, status }) => {
+      // @ts-ignore
+      statusObj[letter] = status;
+    });
+  });
+  return statusObj;
+};
 
 function Keyboard({ checkedGuesses }: KeyBoardProps) {
+  let statusByLetter = getStatusByLetter(checkedGuesses);
   return (
     <div className="keyboard">
       {ROWS.map((row, index) => (
         <div key={index} className="keyboard-row">
           {row.map((letter, index) => (
-            <div key={index} className="letter">
+            // @ts-ignore
+            <div key={index} className={`letter ${statusByLetter[letter]}`}>
+              {/* @ts-ignore */}
               {letter}
             </div>
           ))}

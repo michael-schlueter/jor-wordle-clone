@@ -11,7 +11,6 @@ interface GuessListProps {
 }
 
 function GuessList({ checkedGuesses }: GuessListProps) {
-  console.log(checkedGuesses);
   return (
     <div className="guess-results">
       {range(NUM_OF_GUESSES_ALLOWED).map((num) => (

@@ -20,7 +20,6 @@ interface GuessProps {
 
 
 function Guess({ value }: GuessProps) {
-  console.log(value);
   return (
     <p className="guess">
       {range(5).map((num) => (
