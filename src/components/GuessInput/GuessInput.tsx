@@ -1,15 +1,21 @@
 import React, { useState, useEffect, useRef } from "react";
 
-function GuessInput({ handleSubmitGuess, status }) {
+interface GuessInputProps {
+  status: 'won' | 'lost' | 'running';
+  handleSubmitGuess: (guess: string) => void;
+}
+
+function GuessInput({ handleSubmitGuess, status }: GuessInputProps) {
   const [guess, setGuess] = useState("");
 
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
+    if (!inputRef.current) return;
     inputRef.current.focus();
   }, []);
 
-  function handleSubmit(event) {
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     handleSubmitGuess(guess);

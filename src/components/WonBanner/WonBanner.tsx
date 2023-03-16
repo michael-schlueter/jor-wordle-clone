@@ -1,7 +1,12 @@
 import React from "react";
 import Banner from "../Banner/Banner";
 
-function WonBanner({ numOfGuesses, handleRestart }) {
+interface WonBannerProps {
+  numOfGuesses: number;
+  handleRestart: () => void;
+}
+
+function WonBanner({ numOfGuesses, handleRestart }: WonBannerProps) {
   return (
     <Banner status="happy" action={handleRestart} actionText="Restart game">
       <p>
