@@ -5,7 +5,8 @@ interface GuessInputProps {
   handleSubmitGuess: (guess: string) => void;
 }
 
-function GuessInput({ handleSubmitGuess, status }: GuessInputProps) {
+// @ts-ignore
+function GuessInput({ handleSubmitGuess, status, handleRestart }: GuessInputProps) {
   const [guess, setGuess] = useState("");
 
   const inputRef = useRef<HTMLInputElement>(null);
@@ -13,7 +14,7 @@ function GuessInput({ handleSubmitGuess, status }: GuessInputProps) {
   useEffect(() => {
     if (!inputRef.current) return;
     inputRef.current.focus();
-  }, []);
+  }, [handleRestart]);
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();

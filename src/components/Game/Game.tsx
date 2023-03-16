@@ -45,7 +45,8 @@ function Game() {
   return (
     <>
       <GuessList checkedGuesses={checkedGuesses} />
-      <GuessInput handleSubmitGuess={handleSubmitGuess} status={status} />
+      {/* @ts-ignore */}
+      <GuessInput handleSubmitGuess={handleSubmitGuess} status={status} handleRestart={handleRestart} />
       <Keyboard checkedGuesses={checkedGuesses} />
       {status === "won" && (
         <WonBanner
