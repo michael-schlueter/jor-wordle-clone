@@ -2,12 +2,10 @@ import React from "react";
 import Guess from "../Guess/Guess";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
 import { range } from "../../utils";
+import { GuessResult } from "../../game-helpers";
 
 interface GuessListProps {
-  checkedGuesses: ({
-    letter: string;
-    status: 'correct' | 'incorrect' | 'misplaced';
-}[] | null)[]
+  checkedGuesses: (GuessResult[] | null)[];
 }
 
 function GuessList({ checkedGuesses }: GuessListProps) {

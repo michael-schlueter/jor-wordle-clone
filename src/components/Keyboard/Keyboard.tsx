@@ -1,16 +1,22 @@
 import React from "react";
 
 interface KeyBoardProps {
-  checkedGuesses: ({
-    letter: string;
-    status: string;
-}[] | null)[]
+  checkedGuesses: (
+    | {
+        letter: string;
+        status: string;
+      }[]
+    | null
+  )[];
 }
 
-type CheckedGuesses = ({
-  letter: string;
-  status: string;
-}[] | null)[]
+type CheckedGuesses = (
+  | {
+      letter: string;
+      status: string;
+    }[]
+  | null
+)[];
 
 interface StatusObject {
   [character: string]: string;
@@ -35,7 +41,7 @@ function getStatusByLetter(checkedGuesses: CheckedGuesses) {
     }
   });
   return statusObj;
-};
+}
 
 function Keyboard({ checkedGuesses }: KeyBoardProps) {
   let statusByLetter = getStatusByLetter(checkedGuesses);

@@ -3,12 +3,15 @@
  * solving algorithm!
  */
 
-interface GuessResult {
+export interface GuessResult {
   letter: string;
-  status: 'incorrect' | 'correct' | 'misplaced';
+  status: "incorrect" | "correct" | "misplaced";
 }
 
-export function checkGuess(guess: string, answer: string): GuessResult[] | null {
+export function checkGuess(
+  guess: string,
+  answer: string
+): GuessResult[] | null {
   // This constant is a placeholder that indicates we've successfully
   // dealt with this character (it's correct, or misplaced).
   const SOLVED_CHAR = "✓";
@@ -41,7 +44,7 @@ export function checkGuess(guess: string, answer: string): GuessResult[] | null 
       continue;
     }
 
-    let status: 'correct' | 'incorrect' | 'misplaced' = "incorrect";
+    let status: "correct" | "incorrect" | "misplaced" = "incorrect";
     const misplacedIndex = answerChars.findIndex(
       (char) => char === guessChars[i]
     );

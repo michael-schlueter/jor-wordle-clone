@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 
 interface GuessInputProps {
-  status: 'won' | 'lost' | 'running';
+  status: "won" | "lost" | "running";
   handleSubmitGuess: (guess: string) => void;
 }
 

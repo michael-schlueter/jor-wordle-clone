@@ -1,9 +1,10 @@
 import React from "react";
 import { range } from "../../utils";
+import { GuessResult } from "../../game-helpers";
 
 interface CellProps {
   letter: string | undefined;
-  status: 'correct' | 'incorrect' | 'misplaced' | undefined;
+  status: "correct" | "incorrect" | "misplaced" | undefined;
 }
 
 function Cell({ letter, status }: CellProps) {
@@ -12,12 +13,8 @@ function Cell({ letter, status }: CellProps) {
 }
 
 interface GuessProps {
-  value: ({
-    letter: string;
-    status: 'correct' | 'incorrect' | 'misplaced';
-}[] | null)
+  value: GuessResult[] | null;
 }
-
 
 function Guess({ value }: GuessProps) {
   return (
