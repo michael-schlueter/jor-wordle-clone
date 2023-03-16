@@ -3,7 +3,7 @@ import { range } from "../../utils";
 
 interface CellProps {
   letter: string | undefined;
-  status: string | undefined;
+  status: 'correct' | 'incorrect' | 'misplaced' | undefined;
 }
 
 function Cell({ letter, status }: CellProps) {
@@ -14,7 +14,7 @@ function Cell({ letter, status }: CellProps) {
 interface GuessProps {
   value: ({
     letter: string;
-    status: string;
+    status: 'correct' | 'incorrect' | 'misplaced';
 }[] | null)
 }
 

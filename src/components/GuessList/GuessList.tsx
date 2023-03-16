@@ -6,7 +6,7 @@ import { range } from "../../utils";
 interface GuessListProps {
   checkedGuesses: ({
     letter: string;
-    status: string;
+    status: 'correct' | 'incorrect' | 'misplaced';
 }[] | null)[]
 }
 
