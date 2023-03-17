@@ -3,9 +3,9 @@ import React, { useState, useEffect, useRef } from "react";
 interface GuessInputProps {
   status: "won" | "lost" | "running";
   handleSubmitGuess: (guess: string) => void;
+  handleRestart: () => void;
 }
 
-// @ts-ignore
 function GuessInput({ handleSubmitGuess, status, handleRestart }: GuessInputProps) {
   const [guess, setGuess] = useState("");
 
