@@ -4,7 +4,7 @@
 
 
 ## General Information
-- This project was meant to solidy the foundational understanding of React (thinking in Components, event-handling, managing forms, State management)
+- This project was meant to solidify the foundational understanding of React (thinking in Components, event-handling, managing forms, State management)
 - Therefore the focus was mainly on building the logic for the App. The styling was already provided for the most part.
 - I extended the scope of the project a little bit by converting it to TypeScript and implementing some small extra features (e.g., auto-focus on the input) with techniques I learnt later on in the course.
 
